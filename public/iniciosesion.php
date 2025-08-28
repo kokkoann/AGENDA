@@ -19,8 +19,14 @@
         <h2>Inicio de Sesión</h2>
         
         <!-- Mensaje de error -->
-        <?php 
-        // Aquí podrías colocar el mensaje de error si es necesario
+        <?php
+        require_once '../src/database/Conexion.php';
+        require_once '../src/controlador.php';
+        error_reporting(E_ALL);
+        ini_set("display_errors", 1);
+        if (isset($_GET['error'])) {
+            echo '<p class="error-message">' . htmlspecialchars($_GET['error']) . '</p>';
+        }
         ?>
 
         <form action="controlador.php" method="POST">

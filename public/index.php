@@ -8,7 +8,6 @@
 </head>
 <body class="index-body">
 
-    <!-- Encabezado con nombre y logo -->
     <header class="header">
         <div class="logo-container">
             <img src="IMAGENES/LogoPSA.jpg" alt="Logo de Plásticos San Ángel" class="logo">
@@ -19,8 +18,8 @@
     <div class="index-container">
         <h1>Bienvenidos</h1>
         <div class="button-container">
-            <a href="Iniciosesion.php" class="btn">Iniciar Sesión</a>
-            <a href="Registro.php" class="btn">Registrarse</a>
+            <a href="iniciosesion.php" class="btn">Iniciar Sesión</a>
+            <a href="registro.php" class="btn">Registrarse</a>
         </div>
     </div>
 

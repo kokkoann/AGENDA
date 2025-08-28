@@ -1,14 +1,5 @@
 <?php
-$server = "localhost";
-$user = "root";
-$pass = "";
-$db = "iniciosesiondb";
-
-$conexion_base = new mysqli($server, $user, $pass, $db);
-
-if ($conexion_base->connect_errno) {
-    die("Conexion Fallida: " . $conexion_base->connect_errno);
-}
+require_once '../src/database/Conexion.php';
 
 if (isset($_POST['registro'])) {
     $correo = $_POST['CORREO'];
@@ -32,7 +23,7 @@ if (isset($_POST['registro'])) {
     } else {
         // Verificar si el correo ya está registrado
         $checkCorreo = "SELECT * FROM usuario WHERE correo = '$correo'";
-        $result = mysqli_query($conexion_base, $checkCorreo);
+        $result = mysqli_query($conexion, $checkCorreo);
 
         if (mysqli_num_rows($result) > 0) {
             echo "<script>alert('Correo inválido. Ya está registrado. Ingrese uno nuevo.');</script>";
@@ -42,7 +33,7 @@ if (isset($_POST['registro'])) {
                 // Insertar los datos en la base de datos
                 $insertarDatos = "INSERT INTO usuario (correo, clave, nombre, apellido_paterno, apellido_materno, puesto) 
                                 VALUES ('$correo', '$clave', '$nombre', '$apellido_paterno', '$apellido_materno', '$puesto')";
-                $ejecutarInsertar = mysqli_query($conexion_base, $insertarDatos);
+                $ejecutarInsertar = mysqli_query($conexion, $insertarDatos);
 
                 if ($ejecutarInsertar) {
                     echo "<script>alert('Registro exitoso.');</script>";
