@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-vendor/
-=======
 ##### Windows
 # Windows thumbnail cache files
 Thumbs.db
@@ -474,4 +471,5 @@ composer.lock
 *.css.map
 *.sass.map
 *.scss.map
->>>>>>> ae0710a13f2d2c30666ae2e79ed2a21a4b15e216
+
+.env
