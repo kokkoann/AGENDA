@@ -15,6 +15,4 @@ $conexion = mysqli_connect($host, $user, $pass, $db, $port);
 if (mysqli_connect_errno()) {
     error_log("Error de conexión: " . mysqli_connect_error());
     die("Error de conexión: " . mysqli_connect_error());
-} else {
-    echo '<script>console.log("Conexión exitosa");</script>';
-}
+} 

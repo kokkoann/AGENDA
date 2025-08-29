@@ -12,6 +12,6 @@ if (session_status() == PHP_SESSION_ACTIVE) {
 }
 
 // Redirigir al inicio
-header("Location: index.php");
+header("Location: ../public/index.php");
 exit();
 ?>

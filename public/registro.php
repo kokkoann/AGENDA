@@ -1,6 +1,8 @@
 <?php
 require_once '../src/database/Conexion.php';
 
+$registro_exitoso = false;
+
 if (isset($_POST['registro'])) {
     $correo = $_POST['CORREO'];
     $clave = $_POST['CLAVE'];
@@ -22,7 +24,7 @@ if (isset($_POST['registro'])) {
         echo "<script>alert('Los campos de nombre y apellidos deben estar en MAYÚSCULAS y no contener números.');</script>";
     } else {
         // Verificar si el correo ya está registrado
-        $checkCorreo = "SELECT * FROM usuario WHERE correo = '$correo'";
+        $checkCorreo = "SELECT * FROM USUARIO WHERE CORREO = '$correo'";
         $result = mysqli_query($conexion, $checkCorreo);
 
         if (mysqli_num_rows($result) > 0) {
@@ -31,12 +33,12 @@ if (isset($_POST['registro'])) {
             // Validar las contraseñas
             if ($clave == $Rclave && strlen($clave) >= 5 && strlen($clave) <= 20) {
                 // Insertar los datos en la base de datos
-                $insertarDatos = "INSERT INTO usuario (correo, clave, nombre, apellido_paterno, apellido_materno, puesto) 
+                $insertarDatos = "INSERT INTO USUARIO (correo, clave, nombre, apellido_paterno, apellido_materno, puesto) 
                                 VALUES ('$correo', '$clave', '$nombre', '$apellido_paterno', '$apellido_materno', '$puesto')";
                 $ejecutarInsertar = mysqli_query($conexion, $insertarDatos);
 
                 if ($ejecutarInsertar) {
-                    echo "<script>alert('Registro exitoso.');</script>";
+                    $registro_exitoso = true;
                 } else {
                     echo "<script>alert('Error al registrar. Intente nuevamente.');</script>";
                 }
@@ -44,6 +46,11 @@ if (isset($_POST['registro'])) {
                 echo "<script>alert('Contraseñas no coinciden o no cumplen con los requisitos (5-20 caracteres).');</script>";
             }
         }
+    }
+
+    if ($registro_exitoso) {
+        header("Location: index.php");
+        exit();
     }
 }
 ?>
@@ -125,7 +132,7 @@ if (isset($_POST['registro'])) {
             <button type="submit" name="registro">Registrarse</button>
         </form>
 
-        <p><a href="Index.php">Regresar</a></p>
+        <p><a href="index.php">Regresar</a></p>
     </div>
 
     <script>

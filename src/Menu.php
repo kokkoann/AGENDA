@@ -1,10 +1,10 @@
 <?php
-require 'Conexion.php';
+require_once '../src/database/Conexion.php';
 session_start();
 
 // Verificación de sesión
 if (!isset($_SESSION['correo'])) {
-    header("Location: Iniciosesion.php");
+    header("Location: iniciosesion.php");
     exit();
 }
 
@@ -19,7 +19,7 @@ mysqli_stmt_close($stmt);
 
 // Obtener últimos 5 clientes registrados
 $queryClientes = "SELECT ID_CTE, NOMBRE_CTE, APELLIDO_PATERNO_CTE, EMPRESA 
-                  FROM clientes 
+                  FROM CLIENTES
                   WHERE USUARIO_ID = ?
                   ORDER BY ID_CTE DESC 
                   LIMIT 5";
@@ -304,7 +304,7 @@ function formatFecha($fecha) {
             <li><a href="Agenda.php">Agenda</a></li>
             <li><a href="Pedidos.php">Pedidos</a></li>
             <li><a href="Clientes.php">Clientes</a></li>
-            <li><a href="Cerrarsesion.php" class="logout-btn">Cerrar Sesión</a></li>
+            <li><a href="CerrarSesion.php" class="logout-btn">Cerrar Sesión</a></li>
         </ul>
     </nav>
 

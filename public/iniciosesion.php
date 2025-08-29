@@ -21,7 +21,6 @@
         <!-- Mensaje de error -->
         <?php
         require_once '../src/database/Conexion.php';
-        require_once '../src/controlador.php';
         error_reporting(E_ALL);
         ini_set("display_errors", 1);
         if (isset($_GET['error'])) {
@@ -29,12 +28,12 @@
         }
         ?>
 
-        <form action="controlador.php" method="POST">
+        <form action="../src/controlador.php" method="POST">
             <label for="CORREO">Correo electrónico</label>
-            <input type="email" name="correo" id="CORREO" maxlength="35" onkeydown="return event.key !== ' '" required>
+            <input type="email" name="correo" id="CORREO" maxlength="35" onkeydown="return event.key !== ' '">
 
             <label for="CLAVE">Contraseña</label>
-            <input type="password" name="clave" id="CLAVE" maxlength="20" onkeydown="return event.key !== ' '" required>
+            <input type="password" name="clave" id="CLAVE" maxlength="20" onkeydown="return event.key !== ' '">
 
             <div class="remember">
                 <a href="recovery.php">¿Olvidaste tu contraseña?</a>
@@ -43,7 +42,7 @@
             <button type="submit">Iniciar Sesión</button>
         </form>
         
-        <a href="Index.php" class="btn">Regresar</a>
+        <a href="index.php" class="btn">Regresar</a>
     </div>
 </body>
 </html>
