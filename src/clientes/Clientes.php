@@ -1,9 +1,9 @@
 <?php
-require 'Conexion.php';
+require_once '../database/Conexion.php';
 session_start();
 
 // Consultar todos los clientes ordenados por el nombre
-$query = "SELECT * FROM clientes ORDER BY NOMBRE_CTE ASC";
+$query = "SELECT * FROM CLIENTES ORDER BY NOMBRE_CTE ASC";
 $result = mysqli_query($conexion, $query);
 
 // Organizar clientes por letra inicial
@@ -20,7 +20,7 @@ while ($row = mysqli_fetch_assoc($result)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clientes</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
     <script>
         function toggleForm() {
             var form = document.getElementById('cliente-form');
@@ -51,10 +51,10 @@ while ($row = mysqli_fetch_assoc($result)) {
     <!-- Menú de navegación -->
     <nav class="menu-container">
         <ul>
-            <li><a href="Agenda.php">Agenda</a></li>
-            <li><a href="Pedidos.php">Pedidos</a></li>
+            <li><a href="../agenda/Agenda.php">Agenda</a></li>
+            <li><a href="../pedidos/Pedidos.php">Pedidos</a></li>
             <li><a href="Clientes.php" class="active">Clientes</a></li>
-            <li><a href="Cerrarsesion.php" class="logout-btn">Cerrar Sesión</a></li>
+            <li><a href="../cerrarsesion/CerrarSesion.php" class="logout-btn">Cerrar Sesión</a></li>
         </ul>
     </nav>
 

@@ -1,5 +1,5 @@
 <?php
-require 'Conexion.php';
+require '../database/Conexion.php';
 session_start();
 
 // Verificar sesión

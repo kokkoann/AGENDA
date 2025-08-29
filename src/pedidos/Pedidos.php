@@ -1,5 +1,5 @@
 <?php
-require 'Conexion.php';
+require '../database/Conexion.php';
 session_start();
 ?>
 
@@ -9,7 +9,7 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pedidos</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
     <script>
         function toggleForm() {
             var form = document.getElementById('cliente-form');
@@ -28,17 +28,17 @@ if (isset($_GET['actualizado']) && $_GET['actualizado'] == '1') {
 
     <header class="header">
         <div class="logo-container">
-            <img src="IMAGENES/LogoPSA.jpg" alt="Logo" class="logo">
+            <img src="../../public/IMAGENES/LogoPSA.jpg" alt="Logo" class="logo">
             <span class="company-name">Plásticos San Ángel</span>
         </div>
     </header>
 
     <nav class="menu-container">
         <ul>
-            <li><a href="Agenda.php">Agenda</a></li>
+            <li><a href="../agenda/Agenda.php">Agenda</a></li>
             <li><a href="Pedidos.php" class="active">Pedidos</a></li>
-            <li><a href="Clientes.php">Clientes</a></li>
-            <li><a href="Cerrarsesion.php" class="logout-btn">Cerrar Sesión</a></li>
+            <li><a href="../clientes/Clientes.php">Clientes</a></li>
+            <li><a href="../Cerrarsesion.php" class="logout-btn">Cerrar Sesión</a></li>
         </ul>
     </nav>
 

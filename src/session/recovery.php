@@ -1,6 +1,6 @@
 <?php
-    require 'Conexion.php';
-    
+    require '../database/Conexion.php';
+
 
     
 ?>

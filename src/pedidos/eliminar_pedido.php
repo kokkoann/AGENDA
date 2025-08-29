@@ -1,5 +1,5 @@
 <?php
-include('conexion.php'); // Usa solo la conexión que corresponde (mysqli)
+require_once '../database/Conexion.php';
 
 if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     $cita = $_GET['id'];

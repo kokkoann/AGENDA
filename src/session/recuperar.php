@@ -1,18 +1,5 @@
 <?php
-// Datos de conexión
-$host = "localhost";
-$user = "root";
-$pass = "";
-
-$db = "iniciosesiondb";
-
-// Conectar a la base de datos
-$conn = new mysqli($host, $user, $pass, $db);
-
-// Verificar conexión
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
-}
+require '../database/Conexion.php';
 
 // Verificar si se envió el formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

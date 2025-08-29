@@ -28,7 +28,7 @@
         }
         ?>
 
-        <form action="../src/controlador.php" method="POST">
+        <form action="../src/session/controlador.php" method="POST">
             <label for="CORREO">Correo electrónico</label>
             <input type="email" name="correo" id="CORREO" maxlength="35" onkeydown="return event.key !== ' '">
 
