@@ -1,4 +1,4 @@
-###📅 **Agenda Web – Proyecto de Ingeniería de Software**
+# 📅 **Agenda Web – Proyecto de Ingeniería de Software**
 
 Este proyecto es una agenda web desarrollada en PHP que permite al usuario:
 
@@ -8,7 +8,7 @@ Gestionar un calendario con eventos (crear, editar y eliminar).
 
 La aplicación fue desarrollada utilizando XAMPP para levantar el servidor Apache y la base de datos MySQL.
 
-##**Tecnologías utilizadas**
+## **Tecnologías utilizadas**
 
 PHP 8+
 
@@ -18,11 +18,11 @@ HTML5, CSS
 
 XAMPP como entorno local
 
-##**Instalación y uso**
+## **Instalación y uso**
 
-#1.Clona el repositorio en tu carpeta htdocs de XAMPP.
+### 1.Clona el repositorio en tu carpeta htdocs de XAMPP.
 
-#2.Configura la base de datos:
+### 2.Configura la base de datos:
 
 * Abre phpMyAdmin
 * Crea una nueva base de datos llamada agenda
