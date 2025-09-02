@@ -1,9 +1,9 @@
 <?php
 use PHPUnit\Framework\TestCase;
 
-require_once __DIR__ . '/../session/Menu.php';
+require_once __DIR__ . '/../src/session/FechaUtils.php';
 
-class MenuTest extends TestCase
+class FechaUtilsTest extends TestCase
 {
     public function testFormatFechaDevuelveFormatoCorrecto()
     {

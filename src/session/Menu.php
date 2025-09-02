@@ -1,5 +1,6 @@
 <?php
-require_once '../database/Conexion.php';
+require __DIR__ . '/../database/Conexion.php';
+require __DIR__ . '/FechaUtils.php';
 session_start();
 
 // Verificación de sesión
@@ -40,18 +41,6 @@ mysqli_stmt_execute($stmtEventos);
 $eventosProximos = mysqli_stmt_get_result($stmtEventos);
 
 // Función para formatear la fecha en español
-function formatFecha($fecha) {
-    $dias = ['DOMINGO', 'LUNES', 'MARTES', 'MIÉRCOLES', 'JUEVES', 'VIERNES', 'SÁBADO'];
-    $meses = ['ENERO', 'FEBRERO', 'MARZO', 'ABRIL', 'MAYO', 'JUNIO', 'JULIO', 'AGOSTO', 'SEPTIEMBRE', 'OCTUBRE', 'NOVIEMBRE', 'DICIEMBRE'];
-    
-    $timestamp = strtotime($fecha);
-    $diaSemana = $dias[date('w', $timestamp)];
-    $dia = date('d', $timestamp);
-    $mes = $meses[date('n', $timestamp) - 1];
-    $anio = date('Y', $timestamp);
-    
-    return "$diaSemana $dia DE $mes DE $anio";
-}
 ?>
 
 <!DOCTYPE html>
