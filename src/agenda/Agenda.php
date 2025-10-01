@@ -237,6 +237,7 @@ $stmt->close();
                 &lt; MES ANTERIOR
             </a>
             
+            
             <div class="date-selector">
                 <button class="dropdown-btn" onclick="toggleDateDropdown()">
                     <?php echo obtenerNombreMes($mes) . " " . $anio; ?> ▼
@@ -246,6 +247,23 @@ $stmt->close();
                         <button onclick="changeYear(-1)" class="year-btn">◀</button>
                         <span id="current-year"><?php echo $anio; ?></span>
                         <button onclick="changeYear(1)" class="year-btn">▶</button>
+                        
+                        <!-- New year dropdown -->
+                        <div class="year-dropdown-container">
+                            <select id="year-select" class="year-select" onchange="jumpToYear(this.value)">
+                                <?php 
+                                $currentYear = date('Y');
+                                $startYear = $currentYear - 10;
+                                $endYear = $currentYear + 20;
+                                
+                                for ($y = $startYear; $y <= $endYear; $y++): 
+                                ?>
+                                    <option value="<?php echo $y; ?>" <?php echo ($y == $anio) ? 'selected' : ''; ?>>
+                                        <?php echo $y; ?>
+                                    </option>
+                                <?php endfor; ?>
+                            </select>
+                        </div>
                     </div>
                     <div class="months-grid">
                         <?php for ($i = 1; $i <= 12; $i++): ?>
@@ -393,9 +411,25 @@ $stmt->close();
             }
         });
 
-        // Change year in dropdown
         function changeYear(direction) {
             currentDropdownYear += direction;
+            document.getElementById('current-year').textContent = currentDropdownYear;
+            
+            // Update year select dropdown
+            const yearSelect = document.getElementById('year-select');
+            yearSelect.value = currentDropdownYear;
+            
+            // Update month links with new year
+            const monthLinks = document.querySelectorAll('.month-link');
+            monthLinks.forEach(link => {
+                const month = link.getAttribute('data-month');
+                link.href = `?mes=${month}&anio=${currentDropdownYear}`;
+            });
+        }
+
+        // Jump to specific year from dropdown
+        function jumpToYear(year) {
+            currentDropdownYear = parseInt(year);
             document.getElementById('current-year').textContent = currentDropdownYear;
             
             // Update month links with new year
