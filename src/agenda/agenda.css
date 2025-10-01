@@ -249,3 +249,193 @@ h1 {
     display: block;
     margin-top: 5px;
 }
+
+.calendar-nav {
+    text-align: center;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.calendar-nav .btn {
+    background-color: #444;
+    color: #FFD700;
+    padding: 10px 20px;
+    margin: 0 5px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.calendar-nav .btn:hover {
+    background-color: #555;
+}
+
+/* Date Selector Dropdown Styles */
+.date-selector {
+    position: relative;
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.dropdown-btn {
+    background-color: #444;
+    color: #FFD700;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    display: inline-block;
+    transition: background-color 0.3s;
+    text-decoration: none;
+}
+
+.dropdown-btn:hover {
+    background-color: #555;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #1E1E1E;
+    border: 1px solid #FFD700;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+    z-index: 1000;
+    min-width: 300px;
+    padding: 20px;
+    margin-top: 5px;
+}
+
+.year-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #444;
+}
+
+.year-btn {
+    background-color: #444;
+    color: #FFD700;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 15px;
+    transition: background-color 0.3s;
+}
+
+.year-btn:hover {
+    background-color: #555;
+}
+
+#current-year {
+    font-size: 18px;
+    font-weight: bold;
+    color: #FFD700;
+    min-width: 80px;
+    text-align: center;
+}
+
+.months-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.month-link {
+    padding: 10px 12px;
+    text-decoration: none;
+    color: #FFD700;
+    background-color: #333;
+    border: 1px solid #444;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    transition: all 0.3s;
+    display: block;
+}
+
+.month-link:hover {
+    background-color: #444;
+    border-color: #FFD700;
+}
+
+.month-link.active {
+    background-color: #FFD700;
+    color: #111;
+    border-color: #FFD700;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .calendar-nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .calendar-nav .btn,
+    .dropdown-btn {
+        margin: 5px;
+        padding: 8px 15px;
+        font-size: 14px;
+        min-width: 150px;
+    }
+    
+    .dropdown-content {
+        min-width: 280px;
+        left: 0;
+        transform: none;
+        padding: 15px;
+    }
+    
+    .months-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+    
+    .month-link {
+        font-size: 11px;
+        padding: 8px 10px;
+    }
+    
+    #current-year {
+        font-size: 16px;
+    }
+    
+    .year-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+        margin: 0 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .dropdown-content {
+        min-width: 250px;
+    }
+    
+    .months-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    
+    .month-link {
+        font-size: 12px;
+        padding: 10px;
+    }
+}

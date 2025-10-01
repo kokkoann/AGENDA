@@ -236,9 +236,29 @@ $stmt->close();
             <a class="btn" href="?mes=<?php echo ($mes == 1) ? 12 : $mes - 1; ?>&anio=<?php echo ($mes == 1) ? $anio - 1 : $anio; ?>">
                 &lt; MES ANTERIOR
             </a>
-            <a class="btn" href="?mes=<?php echo date('n'); ?>&anio=<?php echo date('Y'); ?>">
-                MES ACTUAL
-            </a>
+            
+            <div class="date-selector">
+                <button class="dropdown-btn" onclick="toggleDateDropdown()">
+                    <?php echo obtenerNombreMes($mes) . " " . $anio; ?> ▼
+                </button>
+                <div id="date-dropdown" class="dropdown-content">
+                    <div class="year-nav">
+                        <button onclick="changeYear(-1)" class="year-btn">◀</button>
+                        <span id="current-year"><?php echo $anio; ?></span>
+                        <button onclick="changeYear(1)" class="year-btn">▶</button>
+                    </div>
+                    <div class="months-grid">
+                        <?php for ($i = 1; $i <= 12; $i++): ?>
+                        <a href="?mes=<?php echo $i; ?>&anio=<?php echo $anio; ?>" 
+                           class="month-link <?php echo ($i == $mes) ? 'active' : ''; ?>"
+                           data-month="<?php echo $i; ?>">
+                            <?php echo obtenerNombreMes($i); ?>
+                        </a>
+                        <?php endfor; ?>
+                    </div>
+                </div>
+            </div>
+            
             <a class="btn" href="?mes=<?php echo ($mes == 12) ? 1 : $mes + 1; ?>&anio=<?php echo ($mes == 12) ? $anio + 1 : $anio; ?>">
                 MES SIGUIENTE &gt;
             </a>
@@ -355,6 +375,37 @@ $stmt->close();
     </div>
 
     <script>
+        let currentDropdownYear = <?php echo $anio; ?>;
+
+        // Toggle dropdown visibility
+        function toggleDateDropdown() {
+            const dropdown = document.getElementById('date-dropdown');
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdown = document.getElementById('date-dropdown');
+            const button = document.querySelector('.dropdown-btn');
+            
+            if (!dropdown.contains(event.target) && !button.contains(event.target)) {
+                dropdown.style.display = 'none';
+            }
+        });
+
+        // Change year in dropdown
+        function changeYear(direction) {
+            currentDropdownYear += direction;
+            document.getElementById('current-year').textContent = currentDropdownYear;
+            
+            // Update month links with new year
+            const monthLinks = document.querySelectorAll('.month-link');
+            monthLinks.forEach(link => {
+                const month = link.getAttribute('data-month');
+                link.href = `?mes=${month}&anio=${currentDropdownYear}`;
+            });
+        }
+
         // Mostrar/ocultar formulario
         function mostrarFormulario() {
             const formulario = document.getElementById('formulario-evento');
