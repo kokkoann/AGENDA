@@ -442,7 +442,7 @@ $stmt->close();
             }
         });
         
-        // Contador de clics y tiempo
+        // Contar Clics y Tiempo 
     let contadorClicks = 0;
     const inicioTiempo = Date.now();
     document.addEventListener("click", () => {
@@ -454,9 +454,9 @@ $stmt->close();
         const mes = fechaActual.getMonth() + 1;
         const anio = fechaActual.getFullYear();
 
-        if (mes === 10 && anio === 2025) {
+        if (mes === 10 && anio === 2023) {
             const tiempoTranscurrido = ((Date.now() - inicioTiempo) / 1000).toFixed(2);
-            console.log("✅ Condición cumplida: Octubre 2025");
+            console.log("Condición cumplida: Octubre 2023");
             console.log(`Número de clics: ${contadorClicks}`);
             console.log(`Tiempo transcurrido desde carga: ${tiempoTranscurrido} segundos`);
         }
