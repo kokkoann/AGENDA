@@ -510,18 +510,26 @@ $stmt->close();
             return true;
         }
 
-        // Inicializar contadores al cargar la página
-        document.addEventListener('DOMContentLoaded', function() {
-            const tituloEditar = document.getElementById('titulo-editar');
-            if (tituloEditar) {
-                actualizarContador('titulo-editar', 15);
-            }
-            
-            const descripcionEditar = document.getElementById('descripcion-editar');
-            if (descripcionEditar) {
-                actualizarContador('descripcion-editar', 30);
-            }
-        });
+    // Contar Clics y Tiempo 
+    let contadorClicks = 0;
+    const inicioTiempo = Date.now();
+    document.addEventListener("click", () => {
+        contadorClicks++;
+        verificarCondicion();
+    });
+    function verificarCondicion() {
+        const fechaActual = new Date();
+        const mes = fechaActual.getMonth() + 1;
+        const anio = fechaActual.getFullYear();
+
+        if (mes === 10 && anio === 2023) {
+            const tiempoTranscurrido = ((Date.now() - inicioTiempo) / 1000).toFixed(2);
+            console.log("Condición cumplida: Octubre 2023");
+            console.log(`Número de clics: ${contadorClicks}`);
+            console.log(`Tiempo transcurrido desde carga: ${tiempoTranscurrido} segundos`);
+        }
+    }
+    setInterval(verificarCondicion, 60000);
     </script>
 </body>
 </html>
