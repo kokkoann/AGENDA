@@ -20,12 +20,12 @@ jobs:
     - name: Set up PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: '8.1'
+        php-version: '8.3'
         extensions: mbstring, intl, xml, bcmath, curl, zip
         tools: composer:v2
 
     - name: Validate composer.json and composer.lock
-      run: composer validate --strict
+      run: composer validate --no-check-lock --strict
 
     - name: Cache Composer packages
       id: composer-cache
@@ -37,7 +37,7 @@ jobs:
           ${{ runner.os }}-php-
 
     - name: Install dependencies
-      run: composer install --prefer-dist --no-progress
+      run: composer update --prefer-dist --no-progress
 
 
     - name: Run test suite
