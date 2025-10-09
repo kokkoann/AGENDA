@@ -1,8 +1,31 @@
 {
+    "name": "kokkoann/agenda",
+    "description": "Proyecto de agenda para la materia de integracion y desplieges continuos",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kokkoann",
+            "email": "kokkoann@example.com"
+        },
+        {
+            "name": "Tarmairon",
+            "email": "tarmairon@example.com"
+        }
+    ],
     "require": {
-        "vlucas/phpdotenv": "^5.6"
+        "vlucas/phpdotenv": "^5.6.2"
     },
     "require-dev": {
         "phpunit/phpunit": "^12.3"
+    },
+    "autoload": {
+        "files": [
+            "src/session/FechaUtils.php"
+        ]
+    },
+    "scripts": {
+        "test": "phpunit",
+        "start": "php -S localhost:8000 -t public"
     }
 }
