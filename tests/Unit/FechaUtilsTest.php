@@ -1,7 +1,7 @@
 <?php
 use PHPUnit\Framework\TestCase;
 
-require_once __DIR__ . '/../src/session/FechaUtils.php';
+require_once __DIR__ . '/../../src/session/FechaUtils.php';
 
 class FechaUtilsTest extends TestCase
 {

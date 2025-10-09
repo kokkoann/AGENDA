@@ -473,3 +473,5 @@ composer.lock
 *.scss.map
 
 .env
+
+.phpunit.result.cache
